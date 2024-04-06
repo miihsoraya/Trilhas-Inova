@@ -14,7 +14,7 @@
                 let nota1 = parseFloat(prompt("Digite sua 1ª nota: (no seguinte formato '10 ou 7.5')"));
                 let nota2 = parseFloat(prompt("Digite sua 2ª nota: (no seguinte formato '10 ou 7.5')"));
                 let nota3 = parseFloat(prompt("Digite sua 3ª nota: (no seguinte formato '10 ou 7.5')"));
-                if(formato.test(nota1) && formato.test(nota2) && formato.test(nota3)){
+                if(formato.test(nota1) && formato.test(nota2) && formato.test(nota3) && (nota1 <= 10 && nota2 <= 10 && nota3 <= 10)){
                     media = (nota1+nota2+nota3)/3
                     if(media <=10){
                         if(media < 7){ //reprovados
@@ -24,12 +24,11 @@
                         alunos.unshift({nome, media}); //inicio
                     }
                 }else{
-                    alert("DIGITE NOTAS VÁLIDAS! ANALISE O FORMATO!")
+                    alert("DIGITE NOTAS VÁLIDAS (0 a 10)! ANALISE O FORMATO!")
                     media = null
                 }
             }while(!media);
         }
-
         document.write("<h2>Alunos Aprovados :</h2>");
         for (let aluno of alunos) {
             if (aluno.media >= 7) {
