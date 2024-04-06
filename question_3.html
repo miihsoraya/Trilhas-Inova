@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Trilhas Inova</title>
+</head>
+<body>
+    <script>
+        let formato = /^\d+(\.\d+)?$/;
+        let nota1, nota2, nota3, media;
+        let alunos = [];
+        for (let i = 0; i < 3; i++){
+            do{
+                let nome = prompt("Digite o nome do aluno: ");
+                let nota1 = parseFloat(prompt("Digite sua 1ª nota: (no seguinte formato '10 ou 7.5')"));
+                let nota2 = parseFloat(prompt("Digite sua 2ª nota: (no seguinte formato '10 ou 7.5')"));
+                let nota3 = parseFloat(prompt("Digite sua 3ª nota: (no seguinte formato '10 ou 7.5')"));
+                if(formato.test(nota1) && formato.test(nota2) && formato.test(nota3)){
+                    media = (nota1+nota2+nota3)/3
+                    if(media <=10){
+                        if(media < 7){ //reprovados
+                            alunos.push({nome, media}); //final
+                            break;
+                        }
+                        alunos.unshift({nome, media}); //inicio
+                    }
+                }else{
+                    alert("DIGITE NOTAS VÁLIDAS! ANALISE O FORMATO!")
+                    media = null
+                }
+            }while(!media);
+        }
+
+        document.write("<h2>Alunos Aprovados :</h2>");
+        for (let aluno of alunos) {
+            if (aluno.media >= 7) {
+                document.write("<p>" + aluno.nome + " - " + parseFloat(aluno.media).toFixed(2) + "</p>");
+            }
+        }
+        document.write("<h2>\nAlunos Reprovados : </h2>");
+        for (let aluno of alunos) {
+            if (aluno.media < 7) {
+                document.write("<p>" + aluno.nome + " - " + parseFloat(aluno.media).toFixed(2) + "</p>");
+            }
+        }
+    </script>
+</body>
+</html>

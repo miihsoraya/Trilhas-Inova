@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Trilhas Inova</title>
+</head>
+<body>
+    <script>
+        let pessoas = [];
+        for (let i = 0; i < 5; i++) {
+            let nome = prompt("Digite seu nome:");
+            let idade = parseInt(prompt("Digite sua idade " + nome + ":"));
+
+            if(idade >= 60){
+                pessoas.unshift({nome, idade }); //inicio
+            }else{
+                pessoas.push({nome, idade}); //final
+            }
+        }
+        document.write("<h2>Pessoas Prioritárias :</h2>");
+        for (let pessoa of pessoas) {
+            if (pessoa.idade >= 60) {
+                document.write("<p>" + pessoa.nome + "</p>");
+            }
+        }
+        document.write("<h2>\nPessoas Normais : </h2>");
+        for (let pessoa of pessoas) {
+            if (pessoa.idade < 60) {
+                document.write("<p>" + pessoa.nome + "</p>");
+            }
+        }
+    </script>
+</body>
+</html>
