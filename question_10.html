@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Trilhas Inova</title>
+</head>
+<body>
+    <script>
+        funcionarios = [];
+        for (let i = 0; i < 3; i++) {
+            let nome = prompt("Digite seu nome:");
+            let money = parseFloat(prompt("Digite seu salario " + nome + " (ex: 14950):"));
+
+            if(money <= 2000){
+                let newMoney = money + (money * 0.10);
+                funcionarios.push({nome, money, newMoney}); 
+
+            }else if(money > 5000 && money < 10000){
+                let newMoney = money + (money * 0.05)
+                funcionarios.push({nome, money, newMoney}); 
+
+            }else if(money > 10000 && money < 15000){
+                let newMoney = money + (money * 0.02)
+                funcionarios.push({nome, money, newMoney}); 
+
+            }else{
+                alert("Você não terá aumento, meu chapa!")
+            }
+        }
+        document.write("<h2>::::: Ficha Salarial :::::</h2>");
+        for (let pessoa of funcionarios) {
+            document.write("<p>" + pessoa.nome + " - " + parseFloat(pessoa.money).toFixed(2) + " - " + parseFloat(pessoa.newMoney).toFixed(2) + "</p>");
+        }
+
+    </script>
+</body>
+</html>
