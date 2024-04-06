@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Trilhas Inova</title>
+</head>
+<body>
+    <script>
+        hoje = new Date();
+        diaAtual = hoje.getDate();
+        mesAtual = hoje.getMonth() + 1; //de 0 a 11 (jan a dez)
+        anoAtual = hoje.getFullYear();
+
+        diaNasc = parseInt(prompt("Qual o dia do seu nascimento? (exemplo: 19)"));
+        mesNasc = parseInt(prompt("Qual o mes do seu nascimento? (exemplo: 02)"));
+        anoNasc = parseInt(prompt("Qual o ano do seu nascimento? (exemplo: 1996)"));
+        let idade = anoAtual - anoNasc;
+
+        // já fez aniversário ?
+        if (mesAtual < mesNasc || (mesAtual === mesNasc && diaAtual < diaNasc)) { //compara so o mes, depois checa o mes junto com o dia
+            idade--; //não fez aniversario ainda
+        }
+        alert("Voce tem " + idade + " anos de idade");
+    </script>
+</body>
+</html>
+
+    
