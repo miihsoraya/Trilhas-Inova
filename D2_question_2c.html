@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Trilhas Inova - 2º desafio</title>
+</head>
+<body>
+    <p>Elabore um algoritmo que se o valor da poupança do cliente for maior que R$ 50.000,00
+        e menor ou igual R$100.000,00 e, se o tempo de aplicação for maior que 12 (meses) e menor
+        ou igual a 24(meses), a taxa de juro de ser 5 %. Caso o tempo de aplicação for maior ou igual a 12 (meses)
+        e menor ou igual a 24 (meses), a taxa de juros deverá ser de 10%. Por fim, imprima a mensagem na tela,
+        em “Template String” da seguinte forma: “A poupança de  R$[CapitalAplicado] aplicada em
+        [TempoDeAplicacao] meses, rendeu R$[ValorRendimento]”.
+        Caso o valor informado for menor que 0 ou diferente de um número, o algoritmo deve apresentar uma alerta na
+        tela com a seguinte mensagem: “Valor informado inválido! Por favor, informe o valor depositado na poupança!”.
+        Em seguida, solicite novamente ao cliente o valor aplicado na poupança e a quantidade de meses,
+        até que o valor válido seja informado.
+    </p>
+    <script>
+        function CalcRendimento(CapitalAplicado, TempoDeAplicacao){
+            if (CapitalAplicado > 50000 && CapitalAplicado <= 100000 && TempoDeAplicacao > 12 && TempoDeAplicacao <= 24) {
+                taxa = TempoDeAplicacao <= 18 ? 0.05 : 0.1; // taxa de juros de 5% ou 10% 
+            } else {
+                taxa = TempoDeAplicacao > 5 && TempoDeAplicacao < 12 ? 0.02 : 0.006022; // verifica se as condições anteriores não se aplicam
+            }
+            return CapitalAplicado*(1+taxa)**TempoDeAplicacao;
+        }
+        let CapitalAplicado, TempoDeAplicacao;
+        do{
+            CapitalAplicado = parseFloat(prompt("Informe o valor investido na poupança:"));
+            TempoDeAplicacao = parseFloat(prompt("Informe a quantidade de meses da aplicação:"));
+
+            if(isNaN(CapitalAplicado)||CapitalAplicado <= 0){
+                alert("Valor inválido! Por favor, informe o valor depositado na poupança.");
+            }
+        }while(isNaN(CapitalAplicado)||CapitalAplicado <= 0);
+        
+        let ValorRendimento = CalcRendimento(CapitalAplicado, TempoDeAplicacao).toFixed(2);
+        let TaxaDeJuros = (0.6022 * 100).toFixed(2) + "%";
+
+        alert(`A quantia de R$${CapitalAplicado.toFixed(2)} aplicada em ${TempoDeAplicacao} meses, rendeu R$${ValorRendimento}.`);
+
+    </script>
+</body>
+</html>
+
