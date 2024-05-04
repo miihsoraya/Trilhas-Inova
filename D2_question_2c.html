@@ -15,12 +15,15 @@
         Em seguida, solicite novamente ao cliente o valor aplicado na poupança e a quantidade de meses,
         até que o valor válido seja informado.
     </p>
-    <script>
+    <script> //         ** A PERGUNTA PARECEU UM POUCO REDUNTANTE ENTÃO EDITEI DA SEGUINTE FORMA **
         function CalcRendimento(CapitalAplicado, TempoDeAplicacao){
-            if (CapitalAplicado > 50000 && CapitalAplicado <= 100000 && TempoDeAplicacao > 12 && TempoDeAplicacao <= 24) {
-                taxa = TempoDeAplicacao <= 18 ? 0.05 : 0.1; // taxa de juros de 5% ou 10% 
-            } else {
-                taxa = TempoDeAplicacao > 5 && TempoDeAplicacao < 12 ? 0.02 : 0.006022; // verifica se as condições anteriores não se aplicam
+            let taxa = 0.006022;
+            if (CapitalAplicado > 50000 && CapitalAplicado <= 100000) {
+                if (TempoDeAplicacao < 12) {
+                    taxa = 0.05; // taxa de juros de 5% para TempoDeAplicacao < 12
+                } else if (TempoDeAplicacao >= 12 && TempoDeAplicacao <= 24) {
+                    taxa = 0.10; // taxa de juros de 10% para TempoDeAplicacao >= 12 e <= 24
+                }
             }
             return CapitalAplicado*(1+taxa)**TempoDeAplicacao;
         }
