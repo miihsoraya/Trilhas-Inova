@@ -4,16 +4,13 @@
     <title>Trilhas Inova - 2º desafio</title>
 </head>
 <body>
-    <p>Faça um algoritmo que, se o capital aplicado for maior ou igual a R$999,99 e menor ou igual R$10.000,00
-        e o tempo de aplicação for maior que 5 meses e menor que 12 meses, a taxa de rendimento deve ser 2%.
-        O algoritmo deve solicitar ao cliente o valor do capital aplicado e o tempo de aplicação e, após a operação,
-        o programa deve exibir na tela, o valor aplicado, a quantidade de meses em aplicação e o valor de rendimento
-        em R$, utilizando o “Tamplate string”, da seguinte forma: A quantia de R$[CapitalAplicado] aplicada em
-        [TempoDeAplicacao] meses, rendeu R$[ValorRendimento]. Caso o valor informado for menor que 0 ou diferente de
-        um número, o algoritmo deve apresentar uma alerta na tela com a seguinte mensagem:
-        “Valor informado inválido! Por favor, informe o valor depositado na poupança”.
-        Em seguida, solicite novamente ao cliente o valor aplicado na poupança e a quantidade de meses,
-        até que o valor válido seja informado.
+    <p>Implemente um algoritmo que solicite ao usuário o valor, em dinheiro, aplicado e a quantidade de meses em aplicação,
+        considerando que a taxa de juros, por mês, é de 0,6022%. Ao final, imprima o valor aplicado inicialmente,
+        a quantidade de meses e o valor final com o acréscimo de juros, em “Template String”, da seguinte forma: 
+        A quantia de R$[CapitalAplicado] aplicada em [TempoDeAplicacao] meses, rendeu R$[ValorRendimento] a juros de [TaxaDeJuros]. 
+        Caso o valor informado for menor que 0 ou diferente de um número, o algoritmo deve apresentar uma alerta na tela com a 
+        seguinte mensagem: “Valor informado inválido! Por favor, informe o valor depositado na poupança”. Em seguida, 
+        solicite novamente ao cliente o valor aplicado na poupança e a quantidade de meses, até que o valor válido seja informado.
     </p>
     <script>
         function CalcRendimento(CapitalAplicado, TempoDeAplicacao){
